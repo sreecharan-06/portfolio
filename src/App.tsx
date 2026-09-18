@@ -42,9 +42,17 @@ export const App: React.FC = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-dark-900 text-slate-100 flex flex-col relative selection:bg-brand-cyan/25 selection:text-brand-cyan">
-      {/* Background Subtle Gradient Grid */}
-      <div className="fixed inset-0 bg-grid-pattern pointer-events-none opacity-40 -z-20" />
+    <div className="min-h-screen text-slate-100 flex flex-col relative selection:bg-brand-cyan/25 selection:text-brand-cyan overflow-x-hidden">
+      {/* 1. Dynamic Animated Light Blue to Dark Blue Base Layer */}
+      <div className="fixed inset-0 animated-blue-gradient pointer-events-none -z-30" />
+
+      {/* 2. Floating Luminous Light Blue to Deep Blue Glow Orbs */}
+      <div className="fixed top-[-15%] left-[-10%] w-[55vw] h-[55vw] rounded-full bg-sky-400/25 blur-[120px] pointer-events-none animate-orb-1 -z-20" />
+      <div className="fixed bottom-[-15%] right-[-10%] w-[60vw] h-[60vw] rounded-full bg-blue-600/30 blur-[140px] pointer-events-none animate-orb-2 -z-20" />
+      <div className="fixed top-[45%] left-[25%] w-[45vw] h-[45vw] rounded-full bg-cyan-300/20 blur-[130px] pointer-events-none animate-orb-3 -z-20" />
+
+      {/* 3. Subtle Technical Grid Overlay */}
+      <div className="fixed inset-0 bg-grid-pattern pointer-events-none opacity-20 -z-10" />
 
       {/* Sticky Glass Navbar */}
       <Navbar 

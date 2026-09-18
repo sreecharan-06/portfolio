@@ -78,7 +78,7 @@ class SystemGateway {
   return (
     <section 
       id="hero" 
-      className="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden bg-radial-vignette"
+      className="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden bg-transparent"
     >
       {/* Subtle Background Elements */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-brand-cyan/5 rounded-full blur-3xl pointer-events-none -z-10" />

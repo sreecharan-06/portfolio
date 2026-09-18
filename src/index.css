@@ -9,7 +9,7 @@
   }
 
   body {
-    background-color: #07090e;
+    background-color: #030712;
     color: #f1f5f9;
     font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
     overflow-x: hidden;
@@ -20,23 +20,96 @@
     width: 8px;
   }
   ::-webkit-scrollbar-track {
-    background: #07090e;
+    background: #030712;
   }
   ::-webkit-scrollbar-thumb {
-    background: #1e293b;
+    background: #1e3a8a;
     border-radius: 4px;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: #06b6d4;
+    background: #38bdf8;
   }
 }
 
+@keyframes gradient-blue-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes orb-pulse-1 {
+  0%, 100% {
+    transform: translate(0px, 0px) scale(1);
+    opacity: 0.4;
+  }
+  50% {
+    transform: translate(60px, -40px) scale(1.2);
+    opacity: 0.75;
+  }
+}
+
+@keyframes orb-pulse-2 {
+  0%, 100% {
+    transform: translate(0px, 0px) scale(1.15);
+    opacity: 0.35;
+  }
+  50% {
+    transform: translate(-50px, 50px) scale(0.95);
+    opacity: 0.7;
+  }
+}
+
+@keyframes orb-pulse-3 {
+  0%, 100% {
+    transform: translate(0px, 0px) scale(1);
+    opacity: 0.3;
+  }
+  50% {
+    transform: translate(40px, 60px) scale(1.15);
+    opacity: 0.65;
+  }
+}
+
+.animate-orb-1 {
+  animation: orb-pulse-1 10s ease-in-out infinite;
+}
+
+.animate-orb-2 {
+  animation: orb-pulse-2 14s ease-in-out infinite;
+}
+
+.animate-orb-3 {
+  animation: orb-pulse-3 12s ease-in-out infinite;
+}
+
 @layer utilities {
+  /* Dynamic light blue to dark blue continuous shifting background */
+  .animated-blue-gradient {
+    background: linear-gradient(
+      135deg,
+      #020617 0%,
+      #031633 18%,
+      #0284c7 45%,
+      #38bdf8 52%,
+      #0369a1 62%,
+      #082f49 78%,
+      #020617 100%
+    );
+    background-size: 300% 300%;
+    animation: gradient-blue-shift 12s ease-in-out infinite;
+  }
+
   .glass-card {
-    background: rgba(13, 17, 26, 0.72);
+    background: rgba(7, 16, 34, 0.72);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(56, 189, 248, 0.15);
   }
 
   .glass-card-hover {
@@ -44,39 +117,39 @@
   }
   .glass-card-hover:hover {
     transform: translateY(-4px);
-    border-color: rgba(6, 182, 212, 0.4);
-    box-shadow: 0 16px 36px -10px rgba(6, 182, 212, 0.15);
+    border-color: rgba(56, 189, 248, 0.5);
+    box-shadow: 0 16px 40px -10px rgba(14, 165, 233, 0.25);
   }
 
   .glass-nav {
-    background: rgba(7, 9, 14, 0.85);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(3, 10, 26, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(56, 189, 248, 0.18);
   }
 
   .glow-cyan {
-    box-shadow: 0 0 25px -5px rgba(6, 182, 212, 0.35);
+    box-shadow: 0 0 30px -5px rgba(56, 189, 248, 0.4);
   }
 
   .glow-indigo {
-    box-shadow: 0 0 25px -5px rgba(99, 102, 241, 0.35);
+    box-shadow: 0 0 30px -5px rgba(59, 130, 246, 0.4);
   }
 
   .text-gradient-cyan {
-    background: linear-gradient(135deg, #38bdf8 0%, #06b6d4 50%, #10b981 100%);
+    background: linear-gradient(135deg, #7dd3fc 0%, #38bdf8 40%, #0284c7 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
 
   .text-gradient-indigo {
-    background: linear-gradient(135deg, #a855f7 0%, #6366f1 50%, #38bdf8 100%);
+    background: linear-gradient(135deg, #93c5fd 0%, #60a5fa 50%, #38bdf8 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
 
   .text-gradient-white {
-    background: linear-gradient(180deg, #ffffff 0%, #94a3b8 100%);
+    background: linear-gradient(180deg, #ffffff 0%, #93c5fd 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
@@ -84,11 +157,7 @@
   .bg-grid-pattern {
     background-size: 40px 40px;
     background-image: 
-      linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-  }
-
-  .bg-radial-vignette {
-    background: radial-gradient(circle at 50% 0%, rgba(6, 182, 212, 0.08) 0%, transparent 60%);
+      linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
   }
 }
